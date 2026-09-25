@@ -24,6 +24,62 @@
     flor.appendChild(svg);
   }
 
+  // Pasos del proceso: se arrastran de costado con el mouse (en pantallas táctiles
+  // se deslizan con el dedo). El paso que queda en el centro se ilumina.
+  const pista = document.querySelector(".proceso__pista[id]");
+  const puntosContenedor = document.querySelector(".proceso__puntos");
+  if (pista && puntosContenedor) {
+    const pasos = Array.from(pista.querySelectorAll(".paso"));
+    const puntos = pasos.map(function () {
+      const punto = document.createElement("span");
+      punto.className = "proceso__punto";
+      puntosContenedor.appendChild(punto);
+      return punto;
+    });
+
+    function marcarPasoCentral() {
+      const centro = pista.getBoundingClientRect().left + pista.clientWidth / 2;
+      let masCercano = 0;
+      let menorDistancia = Infinity;
+      pasos.forEach(function (paso, i) {
+        const caja = paso.getBoundingClientRect();
+        const distancia = Math.abs(caja.left + caja.width / 2 - centro);
+        if (distancia < menorDistancia) {
+          menorDistancia = distancia;
+          masCercano = i;
+        }
+      });
+      pasos.forEach(function (paso, i) { paso.classList.toggle("paso--activo", i === masCercano); });
+      puntos.forEach(function (punto, i) { punto.classList.toggle("proceso__punto--activo", i === masCercano); });
+    }
+
+    // Arrastre con el mouse
+    let arrastrando = false;
+    let inicioX = 0;
+    let inicioScroll = 0;
+    pista.addEventListener("mousedown", function (evento) {
+      arrastrando = true;
+      inicioX = evento.clientX;
+      inicioScroll = pista.scrollLeft;
+      pista.classList.add("proceso__pista--arrastrando");
+      evento.preventDefault();
+    });
+    window.addEventListener("mousemove", function (evento) {
+      if (arrastrando) pista.scrollLeft = inicioScroll - (evento.clientX - inicioX);
+    });
+    window.addEventListener("mouseup", function () {
+      if (!arrastrando) return;
+      arrastrando = false;
+      pista.classList.remove("proceso__pista--arrastrando");
+    });
+
+    pista.addEventListener("scroll", marcarPasoCentral, { passive: true });
+    window.addEventListener("resize", marcarPasoCentral);
+    // Arranca centrado en el primer paso
+    pista.scrollLeft = pasos[0].offsetLeft - (pista.clientWidth - pasos[0].offsetWidth) / 2;
+    marcarPasoCentral();
+  }
+
   // Cinta de especialidades: se duplica la lista para que el desplazamiento no tenga cortes
   const cinta = document.querySelector(".cinta__lista");
   if (cinta) {

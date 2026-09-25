@@ -96,9 +96,10 @@
     <section class="proceso seccion" aria-labelledby="titulo-proceso">
       <h2 class="etiqueta etiqueta--secundaria" id="titulo-proceso">Cómo trabajamos</h2>
       <p class="declaracion">Cuatro pasos, <em>sin sorpresas.</em></p>
-      <div class="proceso__pista">
+      <p class="nota-manuscrita nota-manuscrita--arrastrar" aria-hidden="true">arrastra para explorar <svg class="pista__flecha" viewBox="0 0 34 34" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 C 12 12, 22 12, 30 18"/><path d="M24 12 L31 18 L 24 23"/></svg></p>
+      <div class="proceso__pista" id="pistaCiencia">
         <ol class="proceso__lista">
-          <li class="paso">
+          <li class="paso paso--activo">
             <span class="paso__anillo" aria-hidden="true"><svg class="paso__orbitas" viewBox="0 0 250 200"><ellipse class="paso__orbita paso__orbita--uno" cx="125" cy="100" rx="110" ry="70"/><ellipse class="paso__orbita paso__orbita--dos" cx="125" cy="100" rx="95" ry="80" transform="rotate(30 125 100)"/></svg></span>
             <h3 class="paso__titulo">Entender</h3>
             <p class="paso__texto">Leemos la investigación y entrevistamos a quienes la hicieron.</p>
@@ -120,6 +121,7 @@
           </li>
         </ol>
       </div>
+      <div class="proceso__puntos" id="puntosCiencia" aria-hidden="true"></div>
     </section>
 
     <!-- Llamada a la acción -->
