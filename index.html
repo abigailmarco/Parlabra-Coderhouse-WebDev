@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parlabra | Inicio</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Inter:wght@200;300;400;500&amp;family=JetBrains+Mono&amp;display=swap">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body class="pagina-inicio">
   <!-- Encabezado: logo y menú de navegación -->
@@ -25,7 +30,7 @@
     <section class="portada" aria-label="Presentación de Parlabra">
       <p class="portada__aviso"><a class="portada__enlace-proyecto" href="pages/contacto.html">¿Tienes un proyecto?</a></p>
       <h1 class="palabra" id="palabraInicio"><a class="palabra__parte" data-i="0" href="pages/cultura.html">par</a><a class="palabra__parte" data-i="1" href="pages/ciencia.html">lab</a><a class="palabra__parte palabra__parte--activa" data-i="2" href="pages/web.html">ra</a><span class="visualmente-oculto">: agencia digital de cultura, ciencia y web</span></h1>
-      <p class="portada__frase" aria-live="polite"><span class="portada__texto" id="fraseTipeada">Web, apps y productos</span></p>
+      <p class="portada__frase" aria-live="polite"><span class="portada__texto" id="fraseTipeada">Web, apps y productos</span><span class="portada__cursor" aria-hidden="true"></span></p>
     </section>
 
     <!-- Presentación: quiénes somos -->
@@ -90,7 +95,8 @@
           <p class="beneficio__texto">Después del lanzamiento seguimos midiendo, ajustando y mejorando.</p>
         </li>
       </ul>
-    </section>
+    </section><!-- Franja decorativa con bloques de colores que caen -->
+    <canvas class="franja-bloques" id="lienzoBloques" aria-hidden="true"></canvas>
   </main>
 
   <!-- Pie de página: derechos y redes sociales -->
@@ -105,6 +111,7 @@
       </ul>
     </nav>
   </footer>
-
+  <script src="js/palabra.js"></script>
+  <script src="js/bloques.js"></script>
 </body>
 </html>

@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parlabra | Web</title>
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Inter:wght@200;300;400;500&amp;family=JetBrains+Mono&amp;display=swap">
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body class="pagina-servicio pagina-web">
   <!-- Encabezado: logo y menú de navegación -->
@@ -23,8 +28,10 @@
   <main class="contenido">
     <!-- Cabecera de la página: área y frase principal -->
     <section class="cabecera-servicio" aria-labelledby="titulo-pagina">
+      <p class="marca-mini" aria-hidden="true">parlab<span class="marca-mini__activa">ra</span></p>
       <p class="etiqueta">Web, apps y productos</p>
       <h1 class="cabecera-servicio__titulo" id="titulo-pagina">Sitios web y aplicaciones rápidos, claros y agradables de usar.</h1>
+      <p class="pista" aria-hidden="true">desliza hacia abajo <svg class="pista__flecha" viewBox="0 0 36 42" width="36" height="42" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 C 20 10, 24 22, 18 36"/><path d="M11 30 L18 37 L 25 31"/></svg></p>
     </section>
 
     <!-- Qué hacemos -->
@@ -33,7 +40,7 @@
         <h2 class="etiqueta etiqueta--principal" id="titulo-que-hacemos">Qué hacemos</h2>
         <p class="declaracion">Diseñamos y programamos <em>sitios web</em>, <em>aplicaciones</em> y <em>productos digitales</em>, desde el primer boceto hasta el lanzamiento y más allá.</p>
         <p class="remate">Hechos para funcionar, pensados para durar.</p>
-        <p class="nota-manuscrita">diseño + código, un solo equipo</p>
+        <p class="nota-manuscrita">diseño + código, un solo equipo<svg class="nota-manuscrita__subrayado" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 40 3, 80 12, 120 7 S 200 3, 240 8 S 290 6, 298 5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></p>
       </div>
       <figure class="figura que-hacemos__figura">
         <img class="figura__imagen" src="../img/web-diseno-de-sitios-y-aplicaciones.webp" alt="Ventana de navegador con el boceto de un sitio web en turquesa y violeta" width="1200" height="800" loading="lazy">
@@ -61,6 +68,7 @@
     <section class="servicios seccion" aria-labelledby="titulo-servicios">
       <h2 class="seccion__titulo" id="titulo-servicios">Servicios</h2>
       <article class="destacado">
+        <div class="destacado__flor" id="florServicio" data-colores="#00D9C0,#6C5CE7" aria-hidden="true"></div>
         <p class="etiqueta">Servicio estrella</p>
         <h3 class="destacado__titulo">Sitio listo para lanzar</h3>
         <p class="destacado__texto">Un sitio a medida con <strong>estrategia</strong>, <strong>diseño</strong>, <strong>desarrollo</strong>, <strong>bases de SEO</strong> y <strong>analítica</strong> en un solo paquete: rápido en cualquier dispositivo y <em>fácil de actualizar para tu equipo</em>.</p>
@@ -92,18 +100,22 @@
       <div class="proceso__pista">
         <ol class="proceso__lista">
           <li class="paso">
+            <span class="paso__anillo" aria-hidden="true"><svg class="paso__orbitas" viewBox="0 0 250 200"><ellipse class="paso__orbita paso__orbita--uno" cx="125" cy="100" rx="110" ry="70"/><ellipse class="paso__orbita paso__orbita--dos" cx="125" cy="100" rx="95" ry="80" transform="rotate(30 125 100)"/></svg></span>
             <h3 class="paso__titulo">Descubrir</h3>
             <p class="paso__texto">Objetivos, usuarios y requisitos claros antes de dibujar un solo píxel.</p>
           </li>
           <li class="paso">
+            <span class="paso__anillo" aria-hidden="true"><svg class="paso__orbitas" viewBox="0 0 250 200"><ellipse class="paso__orbita paso__orbita--uno" cx="125" cy="100" rx="110" ry="70"/><ellipse class="paso__orbita paso__orbita--dos" cx="125" cy="100" rx="95" ry="80" transform="rotate(50 125 100)"/></svg></span>
             <h3 class="paso__titulo">Diseñar</h3>
             <p class="paso__texto">De los bocetos a prototipos navegables.</p>
           </li>
           <li class="paso">
+            <span class="paso__anillo" aria-hidden="true"><svg class="paso__orbitas" viewBox="0 0 250 200"><ellipse class="paso__orbita paso__orbita--uno" cx="125" cy="100" rx="110" ry="70"/><ellipse class="paso__orbita paso__orbita--dos" cx="125" cy="100" rx="95" ry="80" transform="rotate(70 125 100)"/></svg></span>
             <h3 class="paso__titulo">Programar</h3>
             <p class="paso__texto">Código limpio y accesible, probado en dispositivos reales.</p>
           </li>
           <li class="paso">
+            <span class="paso__anillo" aria-hidden="true"><svg class="paso__orbitas" viewBox="0 0 250 200"><ellipse class="paso__orbita paso__orbita--uno" cx="125" cy="100" rx="110" ry="70"/><ellipse class="paso__orbita paso__orbita--dos" cx="125" cy="100" rx="95" ry="80" transform="rotate(90 125 100)"/></svg></span>
             <h3 class="paso__titulo">Lanzar</h3>
             <p class="paso__texto">Publicamos, medimos y seguimos mejorando.</p>
           </li>
@@ -130,6 +142,6 @@
       </ul>
     </nav>
   </footer>
-
+  <script src="../js/servicios.js"></script>
 </body>
 </html>

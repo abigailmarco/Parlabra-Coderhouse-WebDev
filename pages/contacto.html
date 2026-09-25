@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parlabra | Contacto</title>
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Inter:wght@200;300;400;500&amp;family=JetBrains+Mono&amp;display=swap">
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body class="pagina-contacto">
   <!-- Encabezado: logo y menú de navegación -->
@@ -71,7 +76,7 @@
           con un presupuesto de alrededor de <output class="presupuesto__valor" id="presupuestoValor" for="presupuesto">US$15K</output>.
         </p>
 
-        <div class="presupuesto">
+        <div class="presupuesto" id="zonaPresupuesto">
           <label class="presupuesto__etiqueta" for="presupuesto">Presupuesto aproximado</label>
           <input class="presupuesto__control" type="range" id="presupuesto" name="presupuesto" min="500" max="50000" step="500" value="15000">
           <p class="presupuesto__extremos"><span id="extremoMinimo">US$500</span> <span id="extremoMaximo">US$50K+</span></p>
@@ -79,7 +84,7 @@
 
         <p class="formulario__frase">
           <label class="campo campo--largo">¿Algo más? <input class="campo__entrada" type="text" name="mensaje" placeholder="unas palabras sobre el proyecto"></label>
-        </p>
+        </p>  <p class="formulario__trampa" aria-hidden="true"><label>No completar este campo <input type="text" name="sitio" tabindex="-1" autocomplete="off"></label></p>
 
         <button class="boton" type="submit">Enviar mensaje <span aria-hidden="true">&rarr;</span></button>
         <p class="formulario__mensaje" id="mensajeFormulario" role="status" aria-live="polite"></p>
@@ -115,6 +120,6 @@
       </ul>
     </nav>
   </footer>
-
+  <script src="../js/contacto.js"></script>
 </body>
 </html>

@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parlabra | Cultura</title>
+  <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Inter:wght@200;300;400;500&amp;family=JetBrains+Mono&amp;display=swap">
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body class="pagina-servicio pagina-cultura">
   <!-- Encabezado: logo y menú de navegación -->
@@ -23,8 +28,10 @@
   <main class="contenido">
     <!-- Cabecera de la página: área y frase principal -->
     <section class="cabecera-servicio" aria-labelledby="titulo-pagina">
+      <p class="marca-mini" aria-hidden="true"><span class="marca-mini__activa">par</span>labra</p>
       <p class="etiqueta">Cultura y voz de marca</p>
       <h1 class="cabecera-servicio__titulo" id="titulo-pagina">Marcas con una voz que la gente reconoce antes de leer el nombre.</h1>
+      <p class="pista" aria-hidden="true">desliza hacia abajo <svg class="pista__flecha" viewBox="0 0 36 42" width="36" height="42" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 C 20 10, 24 22, 18 36"/><path d="M11 30 L18 37 L 25 31"/></svg></p>
     </section>
 
     <!-- Qué hacemos -->
@@ -33,7 +40,7 @@
         <h2 class="etiqueta etiqueta--principal" id="titulo-que-hacemos">Qué hacemos</h2>
         <p class="declaracion">Damos forma a cómo una empresa <em>se ve</em>, <em>suena</em> y <em>se comporta</em>: desde el primer boceto del logo hasta el tono de un correo de soporte.</p>
         <p class="remate">Una sola voz, en todos los lugares donde habla.</p>
-        <p class="nota-manuscrita">las palabras importan</p>
+        <p class="nota-manuscrita">las palabras importan<svg class="nota-manuscrita__subrayado" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 40 3, 80 12, 120 7 S 200 3, 240 8 S 290 6, 298 5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></p>
       </div>
       <figure class="figura que-hacemos__figura">
         <img class="figura__imagen" src="../img/cultura-identidad-y-voz-de-marca.webp" alt="Flor de líneas violetas y naranjas rodeada de globos de diálogo" width="1200" height="800" loading="lazy">
@@ -61,6 +68,7 @@
     <section class="servicios seccion" aria-labelledby="titulo-servicios">
       <h2 class="seccion__titulo" id="titulo-servicios">Servicios</h2>
       <article class="destacado">
+        <div class="destacado__flor" id="florServicio" data-colores="#B84DFF,#FF7A45" aria-hidden="true"></div>
         <p class="etiqueta">Servicio estrella</p>
         <h3 class="destacado__titulo">Sistema de voz de marca</h3>
         <p class="destacado__texto">Una voz completa y documentada: <strong>posicionamiento</strong>, <strong>pilares de mensaje</strong>, una <strong>guía de tono</strong> con ejemplos reales y plantillas listas para usar desde el primer día, para que todo lo que publiques <em>suene a ti</em>.</p>
@@ -92,18 +100,22 @@
       <div class="proceso__pista">
         <ol class="proceso__lista">
           <li class="paso">
+            <span class="paso__anillo" aria-hidden="true"><svg class="paso__orbitas" viewBox="0 0 250 200"><ellipse class="paso__orbita paso__orbita--uno" cx="125" cy="100" rx="110" ry="70"/><ellipse class="paso__orbita paso__orbita--dos" cx="125" cy="100" rx="95" ry="80" transform="rotate(30 125 100)"/></svg></span>
             <h3 class="paso__titulo">Escuchar</h3>
             <p class="paso__texto">Talleres y entrevistas con tu equipo, tus clientes y tu competencia.</p>
           </li>
           <li class="paso">
+            <span class="paso__anillo" aria-hidden="true"><svg class="paso__orbitas" viewBox="0 0 250 200"><ellipse class="paso__orbita paso__orbita--uno" cx="125" cy="100" rx="110" ry="70"/><ellipse class="paso__orbita paso__orbita--dos" cx="125" cy="100" rx="95" ry="80" transform="rotate(50 125 100)"/></svg></span>
             <h3 class="paso__titulo">Definir</h3>
             <p class="paso__texto">Posicionamiento, personalidad y mensaje central, acordados por escrito.</p>
           </li>
           <li class="paso">
+            <span class="paso__anillo" aria-hidden="true"><svg class="paso__orbitas" viewBox="0 0 250 200"><ellipse class="paso__orbita paso__orbita--uno" cx="125" cy="100" rx="110" ry="70"/><ellipse class="paso__orbita paso__orbita--dos" cx="125" cy="100" rx="95" ry="80" transform="rotate(70 125 100)"/></svg></span>
             <h3 class="paso__titulo">Diseñar</h3>
             <p class="paso__texto">Identidad, voz y piezas clave, probadas en contextos reales.</p>
           </li>
           <li class="paso">
+            <span class="paso__anillo" aria-hidden="true"><svg class="paso__orbitas" viewBox="0 0 250 200"><ellipse class="paso__orbita paso__orbita--uno" cx="125" cy="100" rx="110" ry="70"/><ellipse class="paso__orbita paso__orbita--dos" cx="125" cy="100" rx="95" ry="80" transform="rotate(90 125 100)"/></svg></span>
             <h3 class="paso__titulo">Lanzar</h3>
             <p class="paso__texto">Plan de salida, manual y capacitación para que la marca se sostenga.</p>
           </li>
@@ -130,6 +142,6 @@
       </ul>
     </nav>
   </footer>
-
+  <script src="../js/servicios.js"></script>
 </body>
 </html>
