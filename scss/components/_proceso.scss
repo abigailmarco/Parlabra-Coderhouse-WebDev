@@ -62,12 +62,12 @@
   padding: $relleno-minimo;
   text-align: center;
   scroll-snap-align: center;
-  opacity: 0.4;
   transform: scale(0.85);
-  transition: opacity 0.4s, transform 0.4s;
+  transition: transform 0.4s;
 
+  // Los pasos que no están en el centro se atenúan solo en lo decorativo
+  // (anillo y título), así el texto mantiene buen contraste
   &--activo {
-    opacity: 1;
     transform: scale(1);
   }
 
@@ -79,6 +79,12 @@
     width: 250px;
     height: 200px;
     margin-bottom: -130px;
+    opacity: 0.4;
+    transition: opacity 0.4s;
+  }
+
+  &--activo &__anillo {
+    opacity: 1;
   }
 
   &__orbitas {
@@ -116,6 +122,12 @@
     margin-bottom: 80px;
     font-size: 1.8rem;
     font-weight: 300;
+    color: $color-texto-tenue;
+    transition: color 0.4s;
+  }
+
+  &--activo &__titulo {
+    color: $color-texto;
   }
 
   &__texto {

@@ -51,7 +51,9 @@ parlabra/
 ├── styles/
 │   └── styles.css      CSS compilado (no se edita a mano)
 ├── js/                 Efectos: palabra de portada, bloques, flor, formulario
-└── img/                Ilustraciones del sitio
+├── img/                Ilustraciones del sitio (nombres descriptivos, formato webp)
+├── robots.txt          Indicaciones para los buscadores
+└── sitemap.xml         Mapa del sitio
 ```
 
 ## Entrega 1 · Estructura base
@@ -116,3 +118,14 @@ Hoja de estilos externa (`styles/styles.css`) vinculada en las cinco páginas.
   - `@extend` de los placeholders `%caja-superficie` y `%enlace-discreto`;
   - operadores (`$espacio-lateral * 4`, `math.div($ancho-paso, 2)`), mapas y `@each`.
 - **Las cinco páginas adaptadas** en tres medidas: celular (sin media query), tableta (`min-width: 768px`) y escritorio (`min-width: 1024px`). Revisadas de 1400px a 375px sin desplazamiento horizontal ni contenido cortado.
+
+## Entrega 9 · SEO y accesibilidad
+
+- **Title y meta description propios** en cada página, escritos según su contenido (por ejemplo, «Comunicación científica y de salud | Parlabra, agencia digital»).
+- **Meta keywords** por página, más palabras clave integradas de forma natural en títulos y textos, sin repetirlas de más.
+- **SEO técnico:** enlace canónico, etiquetas Open Graph, datos estructurados de la organización (JSON-LD), `robots.txt` y `sitemap.xml`.
+- **Semántica:** un solo `<h1>` por página, títulos en orden sin saltos, `header`, `nav`, `main`, `section`, `article` y `footer` en lugar de `div` genéricos.
+- **Imágenes:** todas con `alt` descriptivo, ancho y alto declarados, carga diferida y nombres de archivo que describen su contenido (por ejemplo, `ciencia-comunicacion-cientifica.webp`).
+- **Contraste:** todos los textos cumplen WCAG AA sobre el fondo oscuro (el texto gris más tenue da 5,9:1). Se corrigió la palabra chica de las páginas de servicio y los pasos inactivos del proceso.
+
+> Los enlaces canónicos y el sitemap apuntan al dominio `parlabra.com`. Si el sitio queda solo en GitHub Pages, reemplazar `https://parlabra.com/` por la dirección de GitHub Pages en esos archivos.

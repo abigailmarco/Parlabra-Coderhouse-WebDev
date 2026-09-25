@@ -808,7 +808,7 @@ p {
   font-weight: 200;
   letter-spacing: -0.04em;
   line-height: 1;
-  color: #3a3a3a;
+  color: #666666;
 }
 .marca-mini__activa {
   color: #ffffff;
@@ -899,12 +899,10 @@ p {
   padding: 20px;
   text-align: center;
   scroll-snap-align: center;
-  opacity: 0.4;
   transform: scale(0.85);
-  transition: opacity 0.4s, transform 0.4s;
+  transition: transform 0.4s;
 }
 .paso--activo {
-  opacity: 1;
   transform: scale(1);
 }
 .paso__anillo {
@@ -914,6 +912,11 @@ p {
   width: 250px;
   height: 200px;
   margin-bottom: -130px;
+  opacity: 0.4;
+  transition: opacity 0.4s;
+}
+.paso--activo .paso__anillo {
+  opacity: 1;
 }
 .paso__orbitas {
   width: 100%;
@@ -943,6 +946,11 @@ p {
   margin-bottom: 80px;
   font-size: 1.8rem;
   font-weight: 300;
+  color: #8f8f8f;
+  transition: color 0.4s;
+}
+.paso--activo .paso__titulo {
+  color: #ffffff;
 }
 .paso__texto {
   max-width: 18rem;
