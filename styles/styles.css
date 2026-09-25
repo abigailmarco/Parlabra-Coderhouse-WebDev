@@ -489,7 +489,7 @@ p {
   flex-direction: column;
   justify-content: center;
   gap: 0.6rem;
-  min-height: 80vh;
+  min-height: 60vh;
   padding: 3rem 1.25rem;
 }
 
@@ -586,7 +586,7 @@ p {
 .nota-manuscrita {
   margin-top: 1.8rem;
   font-family: var(--fuente-manuscrita);
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 700;
   line-height: 1.2;
   color: var(--color-area-dos);
@@ -965,6 +965,23 @@ p {
   color: var(--color-texto-suave);
 }
 
+/* Cada campo mantiene su texto y su casilla juntos; si no entran, bajan juntos */
+.campo {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.4rem;
+  max-width: 100%;
+}
+
+.campo__entrada {
+  width: 10em;
+}
+
+.campo--largo .campo__entrada {
+  width: 16em;
+}
+
 .campo__entrada,
 .campo__selector {
   max-width: 100%;
@@ -1232,6 +1249,15 @@ p {
   .cabecera-servicio {
     padding-left: 2.8rem;
     padding-right: 2.8rem;
+  }
+
+  /* Cabecera de servicio a casi toda la altura de la pantalla */
+  .cabecera-servicio {
+    min-height: 80vh;
+  }
+
+  .nota-manuscrita {
+    font-size: 2rem;
   }
 
   .pie {

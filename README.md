@@ -4,6 +4,24 @@ Sitio web de **Parlabra**, una agencia digital que une tres áreas: cultura y vo
 
 Proyecto desarrollado a lo largo del curso de desarrollo web, entrega por entrega.
 
+**Sitio publicado:** https://TU-USUARIO.github.io/parlabra/
+
+## Cómo publicarlo con GitHub Pages
+
+1. Subir el repositorio a GitHub con el nombre `parlabra` y dejarlo **público**.
+2. En el repositorio: **Settings → Pages → Build and deployment**. En *Source* elegir *Deploy from a branch*, rama `main`, carpeta `/ (root)` y guardar.
+3. A los pocos minutos el sitio queda en `https://TU-USUARIO.github.io/parlabra/` (reemplazar `TU-USUARIO` por el usuario de GitHub, también en el enlace de arriba).
+
+## Cómo verlo en la computadora
+
+Abrir `index.html` en el navegador, o levantar un servidor local desde la carpeta del proyecto:
+
+```
+python3 -m http.server 8000
+```
+
+y entrar a http://localhost:8000.
+
 ## Estructura
 
 ```
@@ -56,3 +74,10 @@ Hoja de estilos externa (`styles/styles.css`) vinculada en las cinco páginas.
 - **Galería con carrusel** en `index.html` («Así trabajamos») y en `pages/ciencia.html` («Galería de proyectos científicos»).
 - **Estados interactivos** con `:hover`, `:focus`/`:focus-visible` y `:active`, siempre con `transition`: enlaces del menú, logo, botones, tarjetas, controles del carrusel, campos del formulario y redes sociales.
 - Los componentes de Bootstrap se adaptan a la paleta propia: menú oscuro con subrayado ámbar, indicadores y controles del carrusel en los colores del sitio.
+
+## Entrega 6 · Control de versiones con GitHub
+
+- Historial con commits descriptivos hechos desde la consola (`feat:`, `fix:`, `docs:`), una etiqueta por entrega (`entrega-1` … `entrega-9`).
+- Páginas completamente adaptadas a celular y escritorio: `index.html`, `pages/ciencia.html` y `pages/web.html`. Cultura y contacto muestran avances de contenido y estilos.
+- Maquetación de las cinco páginas con Bootstrap (navbar y carrusel) más Grid y Flexbox propios.
+- Enlace al sitio publicado arriba, en este README.
