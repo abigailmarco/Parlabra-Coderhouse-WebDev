@@ -99,8 +99,8 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem 2.8rem;
+  gap: 1rem;
+  padding: 1.25rem;
   border-bottom: 1px solid var(--color-linea);
 }
 
@@ -178,7 +178,7 @@ p {
 }
 
 .seccion {
-  padding: 3rem 2.8rem;
+  padding: 3rem 1.25rem;
 }
 
 .seccion__titulo {
@@ -200,7 +200,7 @@ p {
   justify-content: center;
   gap: 1.8rem;
   min-height: 70vh;
-  padding: 2.5rem 2.8rem;
+  padding: 2.5rem 1.25rem;
   text-align: center;
 }
 
@@ -259,20 +259,23 @@ p {
 }
 
 
-/* ---------- Presentación: texto e imagen lado a lado ---------- */
+/* ---------- Presentación: texto e imagen (grilla) ---------- */
 
 .presentacion {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "texto"
+    "figura";
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .presentacion__texto {
+  grid-area: texto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  flex: 1 1 22rem;
 }
 
 .presentacion__texto .seccion__titulo {
@@ -280,7 +283,7 @@ p {
 }
 
 .presentacion__figura {
-  flex: 1 1 22rem;
+  grid-area: figura;
 }
 
 
@@ -308,15 +311,14 @@ p {
 /* ---------- Tarjetas de las áreas ---------- */
 
 .tarjetas {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
   list-style: none;
 }
 
 .tarjetas__item {
   display: flex;
-  flex: 1 1 16rem;
 }
 
 .tarjeta {
@@ -356,8 +358,8 @@ p {
 /* ---------- Beneficios ---------- */
 
 .beneficios__lista {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   list-style: none;
 }
@@ -366,7 +368,6 @@ p {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  flex: 1 1 14rem;
   padding: 20px;
   border-left: 2px solid var(--color-acento);
 }
@@ -394,7 +395,7 @@ p {
   justify-content: center;
   gap: 0.6rem;
   min-height: 80vh;
-  padding: 3rem 2.8rem;
+  padding: 3rem 1.25rem;
 }
 
 .marca-mini {
@@ -433,18 +434,21 @@ p {
 /* ---------- Qué hacemos: texto e imagen ---------- */
 
 .que-hacemos {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "texto"
+    "figura";
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .que-hacemos__texto {
-  flex: 2 1 26rem;
+  grid-area: texto;
 }
 
 .que-hacemos__figura {
-  flex: 1 1 18rem;
+  grid-area: figura;
 }
 
 
@@ -546,13 +550,26 @@ p {
 /* ---------- Servicio estrella con la flor de líneas ---------- */
 
 .servicios {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "titulo"
+    "destacado"
+    "lista";
   gap: 1rem;
 }
 
 .servicios .seccion__titulo {
+  grid-area: titulo;
   margin-bottom: 0;
+}
+
+.destacado {
+  grid-area: destacado;
+}
+
+.servicios__lista {
+  grid-area: lista;
 }
 
 .destacado {
@@ -561,15 +578,15 @@ p {
   flex-direction: column;
   gap: 0.6rem;
   overflow: hidden;
-  padding: 2.5rem 2rem;
+  padding: 2rem 20px;
 }
 
 .destacado__flor {
   position: absolute;
-  right: 0;
+  right: -40px;
   top: 50%;
-  width: 240px;
-  height: 240px;
+  width: 200px;
+  height: 200px;
   transform: translateY(-50%);
   opacity: 0.35;
   pointer-events: none;
@@ -655,9 +672,9 @@ p {
 .proceso__lista {
   display: flex;
   align-items: flex-start;
-  gap: 70px;
+  gap: 2rem;
   width: max-content;
-  padding: 1.5rem 30vw;
+  padding: 1.5rem calc(50vw - 160px);
   list-style: none;
 }
 
@@ -666,7 +683,7 @@ p {
   flex-direction: column;
   align-items: center;
   gap: 0.6rem;
-  width: 320px;
+  width: min(320px, 80vw);
   padding: 20px;
   text-align: center;
   scroll-snap-align: center;
@@ -820,13 +837,14 @@ p {
 
 .formulario__frase {
   max-width: 62rem;
-  font-size: clamp(1.1rem, 2vw, 1.45rem);
-  line-height: 2.4;
+  font-size: 1.05rem;
+  line-height: 2.2;
   color: var(--color-texto-suave);
 }
 
 .campo__entrada,
 .campo__selector {
+  max-width: 100%;
   padding: 0.2rem 0 0.35rem;
   background-color: transparent;
   color: var(--color-texto);
@@ -921,17 +939,20 @@ p {
 }
 
 .otras-vias {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "texto"
+    "figura";
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .otras-vias__texto {
+  grid-area: texto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  flex: 1 1 20rem;
 }
 
 .otras-vias__texto .seccion__titulo {
@@ -939,7 +960,7 @@ p {
 }
 
 .otras-vias__figura {
-  flex: 1 1 20rem;
+  grid-area: figura;
 }
 
 .otras-vias__lista {
@@ -963,7 +984,7 @@ p {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 0 2.8rem;
+  margin: 0 1.25rem;
   padding: 1.25rem 0 1.5rem;
   border-top: 1px solid var(--color-linea);
 }
@@ -985,4 +1006,95 @@ p {
   display: flex;
   padding: 4px;
   color: var(--color-texto-tenue);
+}
+
+
+/* ==========================================================
+   Escritorio (desde 1024px)
+   El diseño base de arriba es el de celular: todo apilado.
+   Desde 1024px las grillas pasan a varias columnas.
+   ========================================================== */
+
+@media (min-width: 1024px) {
+
+  /* Encabezado y márgenes laterales más amplios */
+  .encabezado {
+    flex-wrap: nowrap;
+    padding: 1.5rem 2.8rem;
+  }
+
+  .seccion,
+  .portada,
+  .cabecera-servicio {
+    padding-left: 2.8rem;
+    padding-right: 2.8rem;
+  }
+
+  .pie {
+    margin: 0 2.8rem;
+  }
+
+  /* Presentación: texto a la izquierda, imagen a la derecha */
+  .presentacion {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "texto figura";
+    gap: 4rem;
+  }
+
+  /* Tres tarjetas de áreas en fila */
+  .tarjetas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Cuatro beneficios en fila */
+  .beneficios__lista {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Qué hacemos: texto ancho e imagen angosta */
+  .que-hacemos {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "texto figura";
+    gap: 4rem;
+  }
+
+  /* Servicios: el servicio estrella a la izquierda y la lista a la derecha */
+  .servicios {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "titulo titulo"
+      "destacado lista";
+    gap: 1.5rem 2rem;
+  }
+
+  .destacado {
+    justify-content: center;
+    padding: 2.5rem 2rem;
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-linea);
+    border-radius: 12px;
+  }
+
+  .destacado__flor {
+    right: -60px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .destacado__texto {
+    max-width: 75%;
+  }
+
+  /* Formulario con letra más grande */
+  .formulario__frase {
+    font-size: 1.45rem;
+    line-height: 2.4;
+  }
+
+  /* Otras formas de contacto: texto e imagen lado a lado */
+  .otras-vias {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "texto figura";
+    gap: 4rem;
+  }
 }
