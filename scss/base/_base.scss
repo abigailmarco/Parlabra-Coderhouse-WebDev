@@ -1,0 +1,80 @@
+// ==========================================================
+// Estilos base: reinicio, colores por área y etiquetas generales
+// ==========================================================
+
+@use "sass:list";
+@use "../utilities/variables" as *;
+
+
+// ---------- Reinicio de márgenes y rellenos ----------
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Bootstrap agrega márgenes propios a títulos, párrafos y listas: los quitamos
+// para que el espaciado lo controle solo esta hoja
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+
+// ---------- Colores de cada área ----------
+// Cada página de servicio tiene dos colores propios. Se guardan en variables de
+// CSS para que todos los componentes los tomen de la página en la que están.
+
+:root {
+  --color-area: #{$color-primario};
+  --color-area-dos: #{$color-secundario};
+}
+
+@each $area, $colores in $colores-areas {
+  .pagina-#{$area} {
+    --color-area: #{list.nth($colores, 1)};
+    --color-area-dos: #{list.nth($colores, 2)};
+  }
+}
+
+
+// ---------- Página ----------
+
+body {
+  background-color: $color-fondo;
+  background-image: radial-gradient(circle at 50% 0%, $color-fondo-brillo 0%, $color-fondo 60%);
+  background-attachment: fixed;
+  color: $color-texto;
+  font-family: $fuente-texto;
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: $color-texto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+// ---------- Texto oculto para lectores de pantalla ----------
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

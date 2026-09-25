@@ -1,0 +1,32 @@
+// ==========================================================
+// Parlabra · Hoja de estilos principal
+// Único punto de entrada: reúne todas las piezas en orden.
+// Se compila a styles/styles.css con:
+//   sass scss/main.scss styles/styles.css --no-source-map
+// ==========================================================
+
+/* Archivo generado a partir de scss/main.scss: no editar a mano. */
+
+// Base: reinicio, colores por área y tipografía
+@use "base/base";
+@use "base/tipografia";
+
+// Estructura: encabezado, menú, secciones y pie
+@use "layout/header";
+@use "layout/nav";
+@use "layout/secciones";
+
+// Componentes
+@use "components/portada";
+@use "components/figuras";
+@use "components/cards";
+@use "components/franja-bloques";
+@use "components/cabecera-servicio";
+@use "components/cinta";
+@use "components/proceso";
+@use "components/buttons";
+@use "components/formulario";
+@use "components/galeria";
+
+// El pie va al final
+@use "layout/footer";

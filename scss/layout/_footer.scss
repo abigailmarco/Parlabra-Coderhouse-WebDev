@@ -1,0 +1,57 @@
+// ==========================================================
+// Pie de página: derechos y redes sociales
+// ==========================================================
+
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+
+.pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 $espacio-lateral;
+  padding: 1.25rem 0 1.5rem;
+  border-top: 1px solid $color-linea;
+
+  @include escritorio {
+    margin: 0 $espacio-lateral-escritorio;
+  }
+
+  &__derechos {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: $color-texto-tenue;
+  }
+}
+
+
+// ---------- Íconos de redes sociales ----------
+
+.redes {
+  &__lista {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  &__enlace {
+    display: flex;
+    padding: 4px;
+    color: $color-texto-tenue;
+    transition: color $transicion, transform $transicion;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-texto;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      color: $color-acento;
+    }
+  }
+}

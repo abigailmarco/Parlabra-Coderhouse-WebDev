@@ -1,0 +1,20 @@
+// ==========================================================
+// Mixins: bloques de estilo que se repiten en varias partes
+// ==========================================================
+
+@use "variables" as *;
+
+
+// Reglas que se aplican solo en escritorio (desde 1024px)
+@mixin escritorio {
+  @media (min-width: $escritorio) {
+    @content;
+  }
+}
+
+// Columna flexible con un espacio entre sus elementos
+@mixin columna($espacio) {
+  display: flex;
+  flex-direction: column;
+  gap: $espacio;
+}

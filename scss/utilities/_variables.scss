@@ -1,0 +1,73 @@
+// ==========================================================
+// Variables: colores, tipografías, medidas y tiempos del sitio
+// ==========================================================
+
+
+// ---------- Colores base (fondo, superficies y líneas) ----------
+
+$color-fondo: #0f0f0f;
+$color-fondo-brillo: #1b1b1b;
+$color-superficie: #151515;
+$color-superficie-activa: #1a1a1a;
+$color-opcion: #171717;
+$color-linea: #2a2a2a;
+$color-linea-fuerte: #3a3a3a;
+$color-borde-campo: #444444;
+$color-borde-campo-activo: #777777;
+$color-borde-boton: #555555;
+$color-sombra: #000000;
+
+
+// ---------- Colores de texto ----------
+
+$color-texto: #ffffff;
+$color-texto-suave: #b8b8b8;
+$color-texto-tenue: #8f8f8f;
+$color-palabra-apagada: #666666;
+$color-marca-apagada: #3a3a3a;
+
+
+// ---------- Colores de marca ----------
+
+$color-primario: #48c840;
+$color-secundario: #48a8e8;
+$color-acento: #e8a000;
+$color-rojo: #e84040;
+$color-naranja: #e87800;
+$color-error: #ff6b6b;
+
+
+// ---------- Colores de cada área (color principal y secundario) ----------
+
+$colores-areas: (
+  cultura: (#c77dff, #ff7a45),
+  ciencia: (#48c840, #48a8e8),
+  web: (#00d9c0, #9d8cff)
+);
+
+
+// ---------- Tipografías ----------
+
+$fuente-texto: "Inter", "Helvetica Neue", Arial, sans-serif;
+$fuente-codigo: "JetBrains Mono", "Courier New", monospace;
+$fuente-manuscrita: "Caveat", "Comic Sans MS", cursive;
+
+
+// ---------- Medidas ----------
+
+$espacio-lateral: 1.25rem;
+$espacio-lateral-escritorio: 2.8rem;
+$radio: 12px;
+$radio-chico: 8px;
+$relleno-minimo: 20px;
+
+
+// ---------- Puntos de quiebre ----------
+
+$escritorio: 1024px;
+$menu-desplegado: 992px;
+
+
+// ---------- Tiempos de transición ----------
+
+$transicion: 0.3s ease;

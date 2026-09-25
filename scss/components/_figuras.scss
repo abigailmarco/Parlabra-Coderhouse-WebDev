@@ -1,0 +1,23 @@
+// ==========================================================
+// Imágenes con leyenda
+// ==========================================================
+
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+
+.figura {
+  @include columna(0.6rem);
+  max-width: 40rem;
+
+  &__imagen {
+    display: block;
+    border-radius: $radio;
+    border: 1px solid $color-linea;
+  }
+
+  &__leyenda {
+    font-size: 0.85rem;
+    color: $color-texto-tenue;
+  }
+}

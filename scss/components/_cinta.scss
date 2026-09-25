@@ -1,0 +1,46 @@
+// ==========================================================
+// Cinta de especialidades que se desplaza sola
+// ==========================================================
+
+@use "../utilities/variables" as *;
+
+
+.cinta {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 1.2rem 0;
+  margin: 0 0 1rem;
+  border-top: 1px solid $color-linea;
+  border-bottom: 1px solid $color-linea;
+
+  &__lista {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    list-style: none;
+    animation: desplazar-cinta 26s linear infinite;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.5rem;
+    font-weight: 200;
+
+    // Punto de color entre especialidades
+    &::after {
+      content: "•";
+      color: var(--color-area);
+    }
+  }
+}
+
+@keyframes desplazar-cinta {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

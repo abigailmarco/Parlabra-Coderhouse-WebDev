@@ -1,0 +1,73 @@
+// ==========================================================
+// Encabezado: barra superior con el logo y el botón hamburguesa
+// (navbar de Bootstrap con los colores del sitio)
+// ==========================================================
+
+@use "sass:color";
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+
+.encabezado {
+  border-bottom: 1px solid $color-linea;
+}
+
+.menu {
+  padding: $espacio-lateral;
+
+  @include escritorio {
+    padding: 1.5rem $espacio-lateral-escritorio;
+  }
+
+  // Logo a la izquierda y menú a la derecha, centrados verticalmente
+  .menu__contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  // Botón hamburguesa
+  .menu__boton {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid $color-linea;
+    border-radius: $radio-chico;
+    transition: border-color $transicion, box-shadow $transicion;
+
+    &:hover {
+      border-color: $color-texto-tenue;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px color.change($color-acento, $alpha: 0.45);
+    }
+  }
+}
+
+
+// ---------- Logo ----------
+
+.menu__logo {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  line-height: 1.2;
+  color: $color-texto;
+  transition: color $transicion;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-acento;
+  }
+}
+
+.menu__lema {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $color-texto-tenue;
+}

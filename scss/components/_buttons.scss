@@ -1,0 +1,56 @@
+// ==========================================================
+// Botones y enlaces sueltos
+// ==========================================================
+
+@use "../utilities/variables" as *;
+
+
+// ---------- Botón redondeado («Empezar un proyecto», «Enviar mensaje») ----------
+
+.boton {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: transparent;
+  color: $color-texto;
+  border: 1px solid $color-borde-boton;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color $transicion, color $transicion, border-color $transicion, transform 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-texto;
+    color: $color-fondo;
+    border-color: $color-texto;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-acento;
+    outline-offset: 3px;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+
+// ---------- Enlace «Volver al inicio» ----------
+
+.enlace-volver {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $color-texto-tenue;
+  transition: color $transicion;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-texto;
+  }
+}

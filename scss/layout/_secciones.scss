@@ -1,0 +1,195 @@
+// ==========================================================
+// Secciones: el contenido principal y sus grillas
+// En celular todo va apilado; desde 1024px las grillas pasan a columnas.
+// ==========================================================
+
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+
+// ---------- Contenido principal y secciones ----------
+
+.contenido {
+  @include columna(2rem);
+}
+
+.seccion {
+  padding: 3rem $espacio-lateral;
+
+  @include escritorio {
+    padding-left: $espacio-lateral-escritorio;
+    padding-right: $espacio-lateral-escritorio;
+  }
+
+  &__titulo {
+    margin-bottom: 1.5rem;
+  }
+
+  &__parrafo {
+    color: $color-texto-suave;
+    max-width: 40rem;
+  }
+}
+
+
+// ---------- Presentación del inicio: texto e imagen ----------
+
+.presentacion {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "texto"
+    "figura";
+  align-items: center;
+  gap: 2rem;
+
+  @include escritorio {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "texto figura";
+    gap: 4rem;
+  }
+
+  &__texto {
+    grid-area: texto;
+    @include columna(1rem);
+
+    .seccion__titulo {
+      margin-bottom: 0;
+    }
+  }
+
+  &__figura {
+    grid-area: figura;
+  }
+}
+
+
+// ---------- Qué hacemos: texto ancho e imagen angosta ----------
+
+.que-hacemos {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "texto"
+    "figura";
+  align-items: center;
+  gap: 2rem;
+
+  @include escritorio {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "texto figura";
+    gap: 4rem;
+  }
+
+  &__texto {
+    grid-area: texto;
+  }
+
+  &__figura {
+    grid-area: figura;
+  }
+}
+
+
+// ---------- Servicios: servicio estrella y lista ----------
+
+.servicios {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "titulo"
+    "destacado"
+    "lista";
+  gap: 1rem;
+
+  @include escritorio {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "titulo titulo"
+      "destacado lista";
+    gap: 1.5rem 2rem;
+  }
+
+  .seccion__titulo {
+    grid-area: titulo;
+    margin-bottom: 0;
+  }
+
+  &__lista {
+    grid-area: lista;
+  }
+}
+
+
+// ---------- Llamada a la acción al final de cada servicio ----------
+
+.llamada {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+
+// ---------- Página de contacto ----------
+
+.contacto {
+  @include columna(1rem);
+  max-width: 1000px;
+
+  &__volver {
+    margin-bottom: 1.5rem;
+  }
+
+  &__intro {
+    margin-bottom: 1.5rem;
+    color: $color-texto-suave;
+  }
+}
+
+.otras-vias {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "texto"
+    "figura";
+  align-items: center;
+  gap: 2rem;
+
+  @include escritorio {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "texto figura";
+    gap: 4rem;
+  }
+
+  &__texto {
+    grid-area: texto;
+    @include columna(1rem);
+
+    .seccion__titulo {
+      margin-bottom: 0;
+    }
+  }
+
+  &__figura {
+    grid-area: figura;
+  }
+
+  &__lista {
+    @include columna(0.4rem);
+    list-style: none;
+    color: $color-texto-suave;
+  }
+
+  &__enlace {
+    color: $color-acento;
+    transition: color $transicion;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-texto;
+    }
+  }
+}

@@ -1,0 +1,130 @@
+// ==========================================================
+// Pasos del proceso: fila que se arrastra de costado
+// ==========================================================
+
+@use "../utilities/variables" as *;
+
+
+.proceso {
+  // Pista con desplazamiento horizontal y ajuste al paso más cercano
+  &__pista {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    cursor: grab;
+
+    &--arrastrando {
+      cursor: grabbing;
+      scroll-snap-type: none;
+    }
+  }
+
+  &__lista {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    width: max-content;
+    padding: 1.5rem calc(50vw - 160px);
+    list-style: none;
+  }
+
+  // Puntitos que indican el paso visible
+  &__puntos {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+  }
+
+  &__punto {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: $color-borde-campo;
+
+    &--activo {
+      background-color: var(--color-area);
+    }
+  }
+}
+
+
+// ---------- Cada paso ----------
+
+.paso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: min(320px, 80vw);
+  padding: $relleno-minimo;
+  text-align: center;
+  scroll-snap-align: center;
+  opacity: 0.4;
+  transform: scale(0.85);
+  transition: opacity 0.4s, transform 0.4s;
+
+  &--activo {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  // Anillo de dos órbitas detrás del nombre del paso
+  &__anillo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 200px;
+    margin-bottom: -130px;
+  }
+
+  &__orbitas {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  &__orbita {
+    fill: none;
+    stroke-width: 1;
+    transform-box: fill-box;
+    transform-origin: center;
+
+    &--uno {
+      stroke: var(--color-area);
+    }
+
+    &--dos {
+      stroke: var(--color-area-dos);
+    }
+  }
+
+  // Las órbitas giran solo en el paso activo
+  &--activo &__orbita--uno {
+    animation: girar 18s linear infinite;
+  }
+
+  &--activo &__orbita--dos {
+    animation: girar 26s linear infinite reverse;
+  }
+
+  &__titulo {
+    position: relative;
+    margin-bottom: 80px;
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
+
+  &__texto {
+    max-width: 18rem;
+    font-size: 0.85rem;
+    color: $color-texto-tenue;
+  }
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}

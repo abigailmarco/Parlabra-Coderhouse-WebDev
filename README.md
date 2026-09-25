@@ -12,6 +12,16 @@ Proyecto desarrollado a lo largo del curso de desarrollo web, entrega por entreg
 2. En el repositorio: **Settings → Pages → Build and deployment**. En *Source* elegir *Deploy from a branch*, rama `main`, carpeta `/ (root)` y guardar.
 3. A los pocos minutos el sitio queda en `https://TU-USUARIO.github.io/parlabra/` (reemplazar `TU-USUARIO` por el usuario de GitHub, también en el enlace de arriba).
 
+## Cómo compilar los estilos
+
+Los estilos se escriben en `scss/` y se compilan a `styles/styles.css`:
+
+```
+npm install
+npm run build     # compila una vez
+npm run watch     # recompila al guardar
+```
+
 ## Cómo verlo en la computadora
 
 Abrir `index.html` en el navegador, o levantar un servidor local desde la carpeta del proyecto:
@@ -32,8 +42,14 @@ parlabra/
 │   ├── ciencia.html    Ciencia y salud
 │   ├── web.html        Web, apps y productos
 │   └── contacto.html   Formulario de contacto
+├── scss/               Estilos fuente (SCSS)
+│   ├── main.scss       Único punto de entrada
+│   ├── utilities/      _variables, _mixins
+│   ├── base/           _base, _tipografia
+│   ├── layout/         _header, _nav, _secciones, _footer
+│   └── components/     _buttons, _cards, _portada, _galeria, _formulario…
 ├── styles/
-│   └── styles.css      Hoja de estilos
+│   └── styles.css      CSS compilado (no se edita a mano)
 ├── js/                 Efectos: palabra de portada, bloques, flor, formulario
 └── img/                Ilustraciones del sitio
 ```
@@ -81,3 +97,12 @@ Hoja de estilos externa (`styles/styles.css`) vinculada en las cinco páginas.
 - Páginas completamente adaptadas a celular y escritorio: `index.html`, `pages/ciencia.html` y `pages/web.html`. Cultura y contacto muestran avances de contenido y estilos.
 - Maquetación de las cinco páginas con Bootstrap (navbar y carrusel) más Grid y Flexbox propios.
 - Enlace al sitio publicado arriba, en este README.
+
+## Entrega 7 · Arquitectura SCSS
+
+- Toda la hoja de estilos pasó a SCSS; `styles/styles.css` es solo el resultado de la compilación.
+- **`main.scss`** es el único punto de entrada y reúne las piezas con `@use`.
+- **Carpetas y partials:** `utilities/` (`_variables`, `_mixins`), `base/` (`_base`, `_tipografia`), `layout/` (`_header`, `_nav`, `_secciones`, `_footer`) y `components/` (`_buttons`, `_cards`, `_portada`, `_figuras`, `_cabecera-servicio`, `_cinta`, `_proceso`, `_formulario`, `_galeria`, `_franja-bloques`).
+- **Variables** para todos los colores, tipografías, medidas, puntos de quiebre y tiempos: ningún componente tiene colores escritos a mano. Los colores de cada área están en un mapa y se recorren con `@each`.
+- **Anidación y `&`** para estados (`&:hover`), modificadores (`&--activo`) y elementos (`&__titulo`).
+- El sitio se ve exactamente igual que en la entrega anterior (comparado captura por captura).

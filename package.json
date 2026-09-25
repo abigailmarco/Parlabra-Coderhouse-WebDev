@@ -1,0 +1,13 @@
+{
+  "name": "parlabra",
+  "version": "1.0.0",
+  "description": "Sitio web de Parlabra, agencia digital de cultura, ciencia y web",
+  "private": true,
+  "scripts": {
+    "build": "sass scss/main.scss styles/styles.css --no-source-map",
+    "watch": "sass --watch scss/main.scss styles/styles.css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.93.2"
+  }
+}

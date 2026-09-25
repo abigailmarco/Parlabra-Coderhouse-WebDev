@@ -1,0 +1,112 @@
+// ==========================================================
+// Tipografía: títulos, párrafos, etiquetas y textos destacados
+// ==========================================================
+
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+
+// ---------- Títulos y párrafos ----------
+
+h1,
+h2,
+h3 {
+  font-weight: 200;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+p {
+  font-size: 1rem;
+}
+
+
+// ---------- Etiquetas pequeñas en mayúsculas ----------
+
+.etiqueta {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-area);
+
+  &--secundaria {
+    color: var(--color-area-dos);
+  }
+}
+
+
+// ---------- Declaración principal y remate ----------
+
+.declaracion {
+  margin-top: 1.5rem;
+  max-width: 55rem;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  font-weight: 200;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+
+  em {
+    font-style: normal;
+    color: $color-texto-tenue;
+  }
+}
+
+.remate {
+  margin-top: 1.5rem;
+  font-size: clamp(1.4rem, 3.4vw, 2.3rem);
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--color-area);
+}
+
+
+// ---------- Notas manuscritas ----------
+
+.nota-manuscrita {
+  margin-top: 1.8rem;
+  font-family: $fuente-manuscrita;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-area-dos);
+
+  @include escritorio {
+    font-size: 2rem;
+  }
+
+  &__subrayado {
+    display: block;
+    width: 70%;
+    max-width: 300px;
+    height: 14px;
+  }
+
+  // Nota «arrastra para explorar» sobre los pasos del proceso
+  &--arrastrar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0.6rem 0 1rem;
+    font-size: 1.5rem;
+    color: $color-texto;
+
+    @include escritorio {
+      font-size: 2rem;
+    }
+  }
+}

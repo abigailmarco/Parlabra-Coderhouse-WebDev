@@ -1,0 +1,194 @@
+// ==========================================================
+// Tarjetas: áreas del inicio, beneficios, servicio estrella y servicios
+// ==========================================================
+
+@use "sass:list";
+@use "sass:map";
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+
+// ---------- Tarjetas de las áreas (inicio) ----------
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  list-style: none;
+
+  @include escritorio {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__item {
+    display: flex;
+  }
+}
+
+.tarjeta {
+  @include columna(0.75rem);
+  width: 100%;
+  padding: 1.75rem;
+  background-color: $color-superficie;
+  border: 1px solid $color-linea;
+  border-top: 3px solid $color-primario;
+  border-radius: $radio;
+  transition: transform $transicion, border-color $transicion, background-color $transicion;
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-4px);
+    background-color: $color-superficie-activa;
+    border-color: $color-linea-fuerte;
+  }
+
+  // Borde superior con el color de cada área
+  &--cultura {
+    border-top-color: list.nth(map.get($colores-areas, cultura), 1);
+  }
+
+  &--web {
+    border-top-color: list.nth(map.get($colores-areas, web), 1);
+  }
+
+  &__texto {
+    flex-grow: 1;
+    color: $color-texto-suave;
+  }
+
+  &__enlace {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-acento;
+    transition: color $transicion;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-texto;
+    }
+
+    &:active {
+      color: $color-acento;
+    }
+  }
+}
+
+
+// ---------- Beneficios (inicio) ----------
+
+.beneficios__lista {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
+
+  @include escritorio {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.beneficio {
+  @include columna(0.5rem);
+  padding: $relleno-minimo;
+  border-left: 2px solid $color-acento;
+
+  &__texto {
+    color: $color-texto-suave;
+  }
+}
+
+
+// ---------- Servicio estrella con la flor de líneas ----------
+
+.destacado {
+  grid-area: destacado;
+  position: relative;
+  @include columna(0.6rem);
+  overflow: hidden;
+  padding: 2rem $relleno-minimo;
+
+  @include escritorio {
+    justify-content: center;
+    padding: 2.5rem 2rem;
+    background-color: $color-superficie;
+    border: 1px solid $color-linea;
+    border-radius: $radio;
+  }
+
+  &__flor {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translateY(-50%);
+    opacity: 0.35;
+    pointer-events: none;
+
+    @include escritorio {
+      right: -60px;
+      width: 240px;
+      height: 240px;
+    }
+  }
+
+  &__titulo {
+    position: relative;
+    font-size: 1.4rem;
+  }
+
+  &__texto {
+    position: relative;
+    max-width: 50rem;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: $color-texto-suave;
+
+    @include escritorio {
+      max-width: 75%;
+    }
+
+    strong {
+      font-weight: 400;
+      color: $color-texto;
+    }
+
+    em {
+      font-style: normal;
+      color: var(--color-area);
+    }
+  }
+}
+
+
+// ---------- Lista de servicios ----------
+
+.servicios__lista {
+  @include columna(8px);
+  list-style: none;
+}
+
+.servicio {
+  @include columna(6px);
+  padding: 1.4rem 1.6rem;
+  background-color: $color-superficie;
+  border: 1px solid $color-linea;
+  border-radius: $radio;
+  transition: border-color 0.35s ease;
+
+  &:hover {
+    border-color: $color-linea-fuerte;
+  }
+
+  &__titulo {
+    font-size: 1rem;
+  }
+
+  &__texto {
+    max-width: 34rem;
+    font-size: 0.85rem;
+    color: $color-texto-tenue;
+  }
+}

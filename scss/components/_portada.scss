@@ -1,0 +1,99 @@
+// ==========================================================
+// Portada del inicio: la palabra par·lab·ra y la frase que se tipea
+// ==========================================================
+
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+
+.portada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  min-height: 70vh;
+  padding: 2.5rem $espacio-lateral;
+  text-align: center;
+
+  @include escritorio {
+    padding-left: $espacio-lateral-escritorio;
+    padding-right: $espacio-lateral-escritorio;
+  }
+
+  // Enlace «¿Tienes un proyecto?»
+  &__aviso {
+    align-self: flex-start;
+  }
+
+  &__enlace-proyecto {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-texto-tenue;
+    transition: color $transicion;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-texto;
+    }
+  }
+
+  // Frase que se escribe debajo de la palabra
+  &__frase {
+    min-height: 2rem;
+    font-family: $fuente-codigo;
+    font-size: clamp(0.7rem, 1.7vw, 0.85rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: $color-texto-suave;
+  }
+
+  // Cursor que parpadea al final de la frase
+  &__cursor {
+    display: inline-block;
+    width: 7px;
+    height: 1em;
+    margin-left: 4px;
+    vertical-align: middle;
+    background-color: $color-texto-tenue;
+    animation: parpadeo 1s step-end infinite;
+  }
+}
+
+@keyframes parpadeo {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+// ---------- La palabra par·lab·ra ----------
+
+.palabra {
+  font-size: clamp(3rem, 12vw, 6.5rem);
+  font-weight: 200;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  white-space: nowrap;
+
+  &__parte {
+    color: $color-palabra-apagada;
+    text-decoration: none;
+    transition: color 0.45s ease;
+
+    &:hover {
+      color: $color-texto;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-acento;
+      outline-offset: 6px;
+    }
+
+    &--activa {
+      color: $color-texto;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+// ==========================================================
+// Cabecera de las páginas de servicio (cultura, ciencia y web)
+// ==========================================================
+
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+
+.cabecera-servicio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 60vh;
+  padding: 3rem $espacio-lateral;
+
+  @include escritorio {
+    min-height: 80vh;
+    padding-left: $espacio-lateral-escritorio;
+    padding-right: $espacio-lateral-escritorio;
+  }
+
+  &__titulo {
+    max-width: 56rem;
+    margin-top: 1.8rem;
+  }
+}
+
+
+// ---------- Palabra chica con la parte del área iluminada ----------
+
+.marca-mini {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 200;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: $color-marca-apagada;
+
+  &__activa {
+    color: $color-texto;
+    font-weight: 400;
+  }
+}
+
+
+// ---------- Pista «desliza hacia abajo» ----------
+
+.pista {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2.5rem;
+  font-family: $fuente-manuscrita;
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  &__flecha {
+    flex-shrink: 0;
+  }
+}

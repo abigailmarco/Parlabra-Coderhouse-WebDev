@@ -1,0 +1,44 @@
+// ==========================================================
+// Menú de navegación: lista de enlaces a las cinco páginas
+// ==========================================================
+
+@use "../utilities/variables" as *;
+
+
+.menu__lista {
+  gap: 0.25rem;
+  padding-top: 1rem;
+  list-style: none;
+
+  // Cuando Bootstrap despliega el menú en fila (desde 992px)
+  @media (min-width: $menu-desplegado) {
+    gap: 1.5rem;
+    padding-top: 0;
+  }
+}
+
+.menu .menu__enlace {
+  width: fit-content;
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-texto-suave;
+  border-bottom: 1px solid transparent;
+  transition: color $transicion, border-color $transicion;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-texto;
+  }
+
+  &:active {
+    color: $color-acento;
+  }
+
+  // Página en la que está el visitante
+  &.active {
+    color: $color-texto;
+    border-bottom-color: $color-acento;
+  }
+}

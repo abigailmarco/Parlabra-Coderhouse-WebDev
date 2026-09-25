@@ -1,0 +1,158 @@
+// ==========================================================
+// Formulario de contacto en forma de frase
+// ==========================================================
+
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+
+  // Párrafo con la frase y los campos intercalados
+  &__frase {
+    max-width: 62rem;
+    font-size: 1.05rem;
+    line-height: 2.2;
+    color: $color-texto-suave;
+
+    @include escritorio {
+      font-size: 1.45rem;
+      line-height: 2.4;
+    }
+  }
+
+  // Campo oculto para frenar a los robots
+  &__trampa {
+    position: absolute;
+    left: -9999px;
+  }
+
+  &__mensaje {
+    min-height: 20px;
+    font-size: 0.85rem;
+    color: $color-primario;
+
+    &--error {
+      color: $color-error;
+    }
+  }
+}
+
+
+// ---------- Campos: el texto y su casilla van juntos ----------
+
+.campo {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.4rem;
+  max-width: 100%;
+
+  &__entrada {
+    width: 10em;
+  }
+
+  &--largo &__entrada {
+    width: 16em;
+  }
+
+  &__entrada,
+  &__selector {
+    max-width: 100%;
+    padding: 0.2rem 0 0.35rem;
+    background-color: transparent;
+    color: $color-texto;
+    border: none;
+    border-bottom: 1px solid $color-borde-campo;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 300;
+    transition: border-color 0.25s ease;
+
+    &:hover {
+      border-bottom-color: $color-borde-campo-activo;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom-color: $color-acento;
+    }
+  }
+
+  &__entrada::placeholder {
+    font-size: 0.75em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-texto-tenue;
+  }
+
+  &__selector option {
+    background-color: $color-opcion;
+    color: $color-texto;
+  }
+
+  &__entrada--fecha {
+    color-scheme: dark;
+  }
+}
+
+
+// ---------- Presupuesto ----------
+
+.presupuesto {
+  @include columna(0.6rem);
+  width: 100%;
+  max-width: 40rem;
+  padding: $relleno-minimo 0;
+
+  &__valor {
+    font-weight: 400;
+    color: $color-acento;
+  }
+
+  &__etiqueta {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $color-texto-tenue;
+  }
+
+  &__control {
+    width: 100%;
+    accent-color: $color-acento;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+
+    // El color del control cambia según el nivel de presupuesto (lo marca contacto.js)
+    &[data-nivel="1"] {
+      accent-color: $color-rojo;
+    }
+
+    &[data-nivel="2"] {
+      accent-color: $color-naranja;
+    }
+
+    &[data-nivel="4"] {
+      accent-color: $color-secundario;
+    }
+
+    &[data-nivel="5"] {
+      accent-color: $color-primario;
+    }
+  }
+
+  &__extremos {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: $color-texto-tenue;
+  }
+}

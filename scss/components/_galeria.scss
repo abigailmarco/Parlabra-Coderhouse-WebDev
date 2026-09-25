@@ -1,0 +1,73 @@
+// ==========================================================
+// Galería de imágenes (carrusel de Bootstrap con los colores del sitio)
+// ==========================================================
+
+@use "sass:color";
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+
+.galeria {
+  &__carrusel {
+    overflow: hidden;
+    border: 1px solid $color-linea;
+    border-radius: $radio;
+  }
+
+  &__imagen {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  // Leyenda: debajo de la imagen en celular, sobre la imagen en escritorio
+  &__leyenda {
+    position: static;
+    padding: 0.9rem 1.25rem 2.2rem;
+    background-color: $color-superficie;
+    font-size: 0.9rem;
+    text-align: left;
+    color: $color-texto;
+
+    @include escritorio {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 4rem 2.5rem 3rem;
+      background-color: transparent;
+      background-image: linear-gradient(transparent, color.change($color-sombra, $alpha: 0.85));
+      font-size: 1.1rem;
+      text-align: center;
+    }
+  }
+
+  // Rayitas que indican la imagen visible
+  &__indicadores {
+    [data-bs-target] {
+      width: 24px;
+      height: 4px;
+      background-color: $color-texto-suave;
+      border-radius: 2px;
+      transition: background-color $transicion, opacity $transicion;
+    }
+
+    .active {
+      background-color: $color-acento;
+    }
+  }
+
+  // Flechas de anterior y siguiente
+  &__control {
+    width: 12%;
+    transition: opacity $transicion, background-color $transicion;
+
+    &:hover,
+    &:focus-visible {
+      background-color: color.change($color-sombra, $alpha: 0.25);
+    }
+
+    &:active {
+      background-color: color.change($color-acento, $alpha: 0.2);
+    }
+  }
+}
