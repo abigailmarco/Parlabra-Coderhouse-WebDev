@@ -17,6 +17,12 @@
   &__imagen {
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    transition: transform 0.8s $curva-suave;
+  }
+
+  // Al pasar el mouse la imagen se acerca un poco
+  &__carrusel:hover &__imagen {
+    transform: scale(1.03);
   }
 
   // Leyenda: debajo de la imagen en celular, sobre la imagen en escritorio
@@ -48,7 +54,7 @@
       height: 4px;
       background-color: $color-texto-suave;
       border-radius: 2px;
-      transition: background-color $transicion, opacity $transicion;
+      @include transicion(background-color, opacity);
     }
 
     .active {
@@ -59,7 +65,7 @@
   // Flechas de anterior y siguiente
   &__control {
     width: 12%;
-    transition: opacity $transicion, background-color $transicion;
+    @include transicion(opacity, background-color);
 
     &:hover,
     &:focus-visible {

@@ -6,34 +6,40 @@
 @use "sass:map";
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
+@use "../utilities/placeholders";
 
 
 // ---------- Tarjetas de las áreas (inicio) ----------
 
 .tarjetas {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  @include grilla-adaptable(2, 3);
   list-style: none;
-
-  @include escritorio {
-    grid-template-columns: repeat(3, 1fr);
-  }
 
   &__item {
     display: flex;
+
+    // En tableta, la tercera tarjeta ocupa las dos columnas
+    @include desde(tablet) {
+      &:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @include escritorio {
+      &:last-child {
+        grid-column: auto;
+      }
+    }
   }
 }
 
 .tarjeta {
+  @extend %caja-superficie;
   @include columna(0.75rem);
   width: 100%;
   padding: 1.75rem;
-  background-color: $color-superficie;
-  border: 1px solid $color-linea;
   border-top: 3px solid $color-primario;
-  border-radius: $radio;
-  transition: transform $transicion, border-color $transicion, background-color $transicion;
+  @include transicion(transform, border-color, background-color);
 
   &:hover,
   &:focus-within {
@@ -62,7 +68,7 @@
     text-transform: uppercase;
     text-decoration: none;
     color: $color-acento;
-    transition: color $transicion;
+    @include transicion(color);
 
     &:hover,
     &:focus-visible {
@@ -79,14 +85,8 @@
 // ---------- Beneficios (inicio) ----------
 
 .beneficios__lista {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+  @include grilla-adaptable(2, 4, 1.5rem);
   list-style: none;
-
-  @include escritorio {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 .beneficio {
@@ -146,7 +146,8 @@
     line-height: 1.75;
     color: $color-texto-suave;
 
-    @include escritorio {
+    // Deja lugar a la flor para que no tape el texto
+    @include desde(tablet) {
       max-width: 75%;
     }
 
@@ -168,14 +169,23 @@
 .servicios__lista {
   @include columna(8px);
   list-style: none;
+
+  // En tableta los servicios van en dos columnas; en escritorio vuelven a una,
+  // porque la lista ocupa la columna derecha junto al servicio estrella
+  @include desde(tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include escritorio {
+    grid-template-columns: 1fr;
+  }
 }
 
 .servicio {
+  @extend %caja-superficie;
   @include columna(6px);
   padding: 1.4rem 1.6rem;
-  background-color: $color-superficie;
-  border: 1px solid $color-linea;
-  border-radius: $radio;
   transition: border-color 0.35s ease;
 
   &:hover {

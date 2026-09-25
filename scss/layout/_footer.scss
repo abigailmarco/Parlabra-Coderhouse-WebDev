@@ -16,6 +16,10 @@
   padding: 1.25rem 0 1.5rem;
   border-top: 1px solid $color-linea;
 
+  @include desde(tablet) {
+    margin: 0 $espacio-lateral-tablet;
+  }
+
   @include escritorio {
     margin: 0 $espacio-lateral-escritorio;
   }
@@ -42,7 +46,7 @@
     display: flex;
     padding: 4px;
     color: $color-texto-tenue;
-    transition: color $transicion, transform $transicion;
+    @include transicion(color, transform);
 
     &:hover,
     &:focus-visible {

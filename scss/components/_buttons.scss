@@ -3,6 +3,8 @@
 // ==========================================================
 
 @use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/placeholders";
 
 
 // ---------- Botón redondeado («Empezar un proyecto», «Enviar mensaje») ----------
@@ -19,7 +21,7 @@
   letter-spacing: 0.05em;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color $transicion, color $transicion, border-color $transicion, transform 0.15s ease;
+  @include transicion(background-color, color, border-color, transform);
 
   &:hover,
   &:focus-visible {
@@ -42,15 +44,6 @@
 // ---------- Enlace «Volver al inicio» ----------
 
 .enlace-volver {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: $color-texto-tenue;
-  transition: color $transicion;
-
-  &:hover,
-  &:focus-visible {
-    color: $color-texto;
-  }
+  @extend %enlace-discreto;
+  @include texto-etiqueta;
 }

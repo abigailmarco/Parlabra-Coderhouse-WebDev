@@ -1,20 +1,82 @@
 // ==========================================================
-// Mixins: bloques de estilo que se repiten en varias partes
+// Mixins y bloques reutilizables
 // ==========================================================
 
+@use "sass:map";
+@use "sass:list";
 @use "variables" as *;
 
 
-// Reglas que se aplican solo en escritorio (desde 1024px)
-@mixin escritorio {
-  @media (min-width: $escritorio) {
+// ---------- Puntos de quiebre ----------
+
+// Aplica las reglas desde el ancho indicado: tablet (768px) o escritorio (1024px)
+//   @include desde(tablet) { ... }
+@mixin desde($punto) {
+  @if not map.has-key($puntos-de-quiebre, $punto) {
+    @error "No existe el punto de quiebre «#{$punto}». Usa: #{map.keys($puntos-de-quiebre)}";
+  }
+  @media (min-width: map.get($puntos-de-quiebre, $punto)) {
     @content;
   }
 }
+
+// Atajo para escritorio (se usa en varias partes desde la entrega anterior)
+@mixin escritorio {
+  @include desde(escritorio) {
+    @content;
+  }
+}
+
+
+// ---------- Disposición ----------
 
 // Columna flexible con un espacio entre sus elementos
 @mixin columna($espacio) {
   display: flex;
   flex-direction: column;
   gap: $espacio;
+}
+
+// Grilla de columnas iguales que se adapta: 1 en celular, $tablet y $escritorio columnas
+@mixin grilla-adaptable($tablet, $escritorio-columnas, $espacio: 1rem) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $espacio;
+
+  @include desde(tablet) {
+    grid-template-columns: repeat($tablet, 1fr);
+  }
+
+  @include desde(escritorio) {
+    grid-template-columns: repeat($escritorio-columnas, 1fr);
+  }
+}
+
+
+// ---------- Texto ----------
+
+// Texto chico en mayúsculas con letras separadas (etiquetas y enlaces discretos)
+@mixin texto-etiqueta($tamano: 0.7rem, $espaciado: 0.2em) {
+  font-size: $tamano;
+  letter-spacing: $espaciado;
+  text-transform: uppercase;
+}
+
+
+// ---------- Movimiento ----------
+
+// Transición suave para una o varias propiedades con la misma duración
+//   @include transicion(color, border-color);
+@mixin transicion($propiedades...) {
+  $lista: ();
+  @each $propiedad in $propiedades {
+    $lista: list.append($lista, $propiedad $duracion $curva, $separator: comma);
+  }
+  transition: $lista;
+}
+
+// Entrada animada al cargar la página, con un retraso opcional
+@mixin aparecer($retraso: 0s, $distancia: 24px) {
+  --distancia-aparecer: #{$distancia};
+  animation: subir-y-aparecer 0.9s $curva-suave $retraso both;
 }

@@ -1,0 +1,50 @@
+// ==========================================================
+// Animaciones propias (keyframes)
+// ==========================================================
+
+// Sube y aparece: títulos de portada y cabeceras al cargar la página
+@keyframes subir-y-aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(var(--distancia-aparecer, 24px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Cursor que parpadea en la frase de la portada
+@keyframes parpadeo {
+  50% {
+    opacity: 0;
+  }
+}
+
+// Cinta de especialidades que se desplaza
+@keyframes desplazar-cinta {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+// Órbitas que giran en el paso activo del proceso
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Flecha que invita a bajar
+@keyframes rebotar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}

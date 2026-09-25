@@ -16,6 +16,11 @@
 .seccion {
   padding: 3rem $espacio-lateral;
 
+  @include desde(tablet) {
+    padding-left: $espacio-lateral-tablet;
+    padding-right: $espacio-lateral-tablet;
+  }
+
   @include escritorio {
     padding-left: $espacio-lateral-escritorio;
     padding-right: $espacio-lateral-escritorio;
@@ -128,8 +133,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: $espacio-lateral * 4;
+  padding-bottom: $espacio-lateral * 4;
 }
 
 
@@ -175,6 +180,11 @@
 
   &__figura {
     grid-area: figura;
+
+    // En tableta la imagen no ocupa todo el ancho
+    @include desde(tablet) {
+      max-width: 32rem;
+    }
   }
 
   &__lista {
@@ -185,7 +195,7 @@
 
   &__enlace {
     color: $color-acento;
-    transition: color $transicion;
+    @include transicion(color);
 
     &:hover,
     &:focus-visible {

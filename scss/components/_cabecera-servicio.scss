@@ -14,6 +14,11 @@
   min-height: 60vh;
   padding: 3rem $espacio-lateral;
 
+  @include desde(tablet) {
+    padding-left: $espacio-lateral-tablet;
+    padding-right: $espacio-lateral-tablet;
+  }
+
   @include escritorio {
     min-height: 80vh;
     padding-left: $espacio-lateral-escritorio;
@@ -21,6 +26,7 @@
   }
 
   &__titulo {
+    @include aparecer(0.2s);
     max-width: 56rem;
     margin-top: 1.8rem;
   }
@@ -30,6 +36,7 @@
 // ---------- Palabra chica con la parte del área iluminada ----------
 
 .marca-mini {
+  @include aparecer(0s, 12px);
   font-size: clamp(2rem, 5vw, 3.4rem);
   font-weight: 200;
   letter-spacing: -0.04em;
@@ -56,5 +63,6 @@
 
   &__flecha {
     flex-shrink: 0;
+    animation: rebotar 1.8s ease-in-out infinite;
   }
 }

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Inter:wght@200;300;400;500&amp;family=JetBrains+Mono&amp;display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
   <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body class="pagina-servicio pagina-ciencia">
@@ -44,13 +45,13 @@
 
     <!-- Qué hacemos -->
     <section class="que-hacemos seccion" aria-labelledby="titulo-que-hacemos">
-      <div class="que-hacemos__texto">
+      <div class="que-hacemos__texto" data-aos="fade-up">
         <h2 class="etiqueta etiqueta--principal" id="titulo-que-hacemos">Qué hacemos</h2>
         <p class="declaracion">Ayudamos a laboratorios, clínicas y empresas de salud a explicar <em>lo que saben</em> a quienes <em>necesitan entenderlo</em>: pacientes, financiadores, socios y el público en general.</p>
         <p class="remate">Primero exactos. Siempre claros.</p>
         <p class="nota-manuscrita">sin jerga, sin exageraciones<svg class="nota-manuscrita__subrayado" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 40 3, 80 12, 120 7 S 200 3, 240 8 S 290 6, 298 5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></p>
       </div>
-      <figure class="figura que-hacemos__figura">
+      <figure class="figura que-hacemos__figura" data-aos="zoom-in">
         <img class="figura__imagen" src="../img/ciencia-comunicacion-cientifica.webp" alt="Ilustración de un átomo con órbitas verdes y azules junto a una molécula" width="1200" height="800" loading="lazy">
         <figcaption class="figura__leyenda">Traducimos la ciencia sin perder el rigor.</figcaption>
       </figure>
@@ -74,26 +75,26 @@
     <!-- Servicios: el servicio estrella y la lista de servicios -->
     <section class="servicios seccion" aria-labelledby="titulo-servicios">
       <h2 class="seccion__titulo" id="titulo-servicios">Servicios</h2>
-      <article class="destacado">
+      <article class="destacado" data-aos="fade-up">
         <div class="destacado__flor" id="florServicio" data-colores="#48C840,#48A8E8" aria-hidden="true"></div>
         <p class="etiqueta">Servicio estrella</p>
         <h3 class="destacado__titulo">Kit de la investigación al público</h3>
         <p class="destacado__texto">Convertimos un paper, un ensayo o un producto en un <strong>resumen en lenguaje claro</strong>, <strong>visuales explicativos</strong>, una <strong>página de aterrizaje</strong> y <strong>piezas para redes</strong>, revisados con tus especialistas para garantizar la <em>exactitud</em> en cada paso.</p>
       </article>
       <ul class="servicios__lista">
-        <li class="servicio">
+        <li class="servicio" data-aos="fade-up">
           <h3 class="servicio__titulo">Contenidos y explicadores</h3>
           <p class="servicio__texto">Artículos, videos e infografías que traducen resultados sin perder los matices.</p>
         </li>
-        <li class="servicio">
+        <li class="servicio" data-aos="fade-up" data-aos-delay="100">
           <h3 class="servicio__titulo">Materiales para pacientes</h3>
           <p class="servicio__texto">Folletos, guías de bienvenida y material educativo escritos para lectores reales.</p>
         </li>
-        <li class="servicio">
+        <li class="servicio" data-aos="fade-up" data-aos-delay="200">
           <h3 class="servicio__titulo">Visualización de datos</h3>
           <p class="servicio__texto">Gráficos estáticos e interactivos que hacen evidentes los resultados.</p>
         </li>
-        <li class="servicio">
+        <li class="servicio" data-aos="fade-up" data-aos-delay="300">
           <h3 class="servicio__titulo">Plataformas digitales</h3>
           <p class="servicio__texto">Sitios web y portales para laboratorios, clínicas y empresas de salud.</p>
         </li>
@@ -131,7 +132,7 @@
       </div>
       <div class="proceso__puntos" id="puntosCiencia" aria-hidden="true"></div>
     </section><!-- Galería de imágenes (carrusel de Bootstrap) -->
-    <section class="galeria seccion" aria-labelledby="titulo-galeria">
+    <section class="galeria seccion" aria-labelledby="titulo-galeria" data-aos="fade-up">
       <h2 class="seccion__titulo" id="titulo-galeria">Galería de proyectos científicos</h2>
       <div id="carruselCiencia" class="carousel slide galeria__carrusel" data-bs-ride="carousel">
         <div class="carousel-indicators galeria__indicadores">
@@ -171,7 +172,7 @@
     </section>
 
     <!-- Llamada a la acción -->
-    <section class="llamada seccion" aria-labelledby="titulo-llamada">
+    <section class="llamada seccion" aria-labelledby="titulo-llamada" data-aos="fade-up">
       <h2 class="llamada__titulo" id="titulo-llamada">¿Tienes una investigación que merece ser contada?</h2>
       <a class="boton" href="contacto.html">Empezar un proyecto <span aria-hidden="true">&rarr;</span></a>
     </section>
@@ -190,6 +191,8 @@
     </nav>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="../js/servicios.js"></script>
+  <script src="../js/animaciones.js"></script>
 </body>
 </html>

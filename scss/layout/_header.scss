@@ -15,6 +15,10 @@
 .menu {
   padding: $espacio-lateral;
 
+  @include desde(tablet) {
+    padding: $espacio-lateral $espacio-lateral-tablet;
+  }
+
   @include escritorio {
     padding: 1.5rem $espacio-lateral-escritorio;
   }
@@ -33,7 +37,7 @@
     padding: 0.4rem 0.6rem;
     border: 1px solid $color-linea;
     border-radius: $radio-chico;
-    transition: border-color $transicion, box-shadow $transicion;
+    @include transicion(border-color, box-shadow);
 
     &:hover {
       border-color: $color-texto-tenue;
@@ -57,7 +61,7 @@
   letter-spacing: 0.2em;
   line-height: 1.2;
   color: $color-texto;
-  transition: color $transicion;
+  @include transicion(color);
 
   &:hover,
   &:focus-visible {
@@ -66,8 +70,6 @@
 }
 
 .menu__lema {
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  @include texto-etiqueta(0.65rem);
   color: $color-texto-tenue;
 }

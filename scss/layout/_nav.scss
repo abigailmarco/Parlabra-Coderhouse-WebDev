@@ -3,6 +3,7 @@
 // ==========================================================
 
 @use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
 
 
 .menu__lista {
@@ -20,12 +21,10 @@
 .menu .menu__enlace {
   width: fit-content;
   padding: 0.5rem 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  @include texto-etiqueta(0.75rem, 0.15em);
   color: $color-texto-suave;
   border-bottom: 1px solid transparent;
-  transition: color $transicion, border-color $transicion;
+  @include transicion(color, border-color);
 
   &:hover,
   &:focus-visible {

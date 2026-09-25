@@ -1,0 +1,25 @@
+// ==========================================================
+// Placeholders: estilos compartidos que se heredan con @extend
+// ==========================================================
+
+@use "variables" as *;
+
+
+// Caja oscura con borde fino y esquinas redondeadas (tarjetas y servicios)
+%caja-superficie {
+  background-color: $color-superficie;
+  border: 1px solid $color-linea;
+  border-radius: $radio;
+}
+
+// Enlace discreto en gris que se ilumina al pasar el mouse
+%enlace-discreto {
+  text-decoration: none;
+  color: $color-texto-tenue;
+  transition: color $transicion;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-texto;
+  }
+}

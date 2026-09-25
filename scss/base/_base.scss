@@ -68,6 +68,21 @@ img {
 }
 
 
+// ---------- Movimiento reducido ----------
+// Si la persona pidió menos animaciones en su sistema, se apagan
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.01ms;
+    scroll-behavior: auto;
+  }
+}
+
+
 // ---------- Texto oculto para lectores de pantalla ----------
 
 .visualmente-oculto {

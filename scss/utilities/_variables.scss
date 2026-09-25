@@ -56,7 +56,9 @@ $fuente-manuscrita: "Caveat", "Comic Sans MS", cursive;
 // ---------- Medidas ----------
 
 $espacio-lateral: 1.25rem;
+$espacio-lateral-tablet: 2rem;
 $espacio-lateral-escritorio: 2.8rem;
+$ancho-paso: 320px;
 $radio: 12px;
 $radio-chico: 8px;
 $relleno-minimo: 20px;
@@ -64,10 +66,19 @@ $relleno-minimo: 20px;
 
 // ---------- Puntos de quiebre ----------
 
+$tablet: 768px;
 $escritorio: 1024px;
 $menu-desplegado: 992px;
 
+$puntos-de-quiebre: (
+  tablet: $tablet,
+  escritorio: $escritorio
+);
 
-// ---------- Tiempos de transición ----------
 
-$transicion: 0.3s ease;
+// ---------- Tiempos de transición y animación ----------
+
+$duracion: 0.3s;
+$curva: ease;
+$curva-suave: cubic-bezier(0.2, 0.8, 0.2, 1);
+$transicion: $duracion $curva;

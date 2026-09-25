@@ -11,6 +11,9 @@
 @use "base/base";
 @use "base/tipografia";
 
+// Animaciones propias (keyframes)
+@use "utilities/animaciones";
+
 // Estructura: encabezado, menú, secciones y pie
 @use "layout/header";
 @use "layout/nav";

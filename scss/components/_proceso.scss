@@ -2,6 +2,7 @@
 // Pasos del proceso: fila que se arrastra de costado
 // ==========================================================
 
+@use "sass:math";
 @use "../utilities/variables" as *;
 
 
@@ -24,7 +25,8 @@
     align-items: flex-start;
     gap: 2rem;
     width: max-content;
-    padding: 1.5rem calc(50vw - 160px);
+    // Relleno para que el primer y el último paso puedan quedar centrados
+    padding: 1.5rem calc(50vw - #{math.div($ancho-paso, 2)});
     list-style: none;
   }
 
@@ -56,7 +58,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.6rem;
-  width: min(320px, 80vw);
+  width: min($ancho-paso, 80vw);
   padding: $relleno-minimo;
   text-align: center;
   scroll-snap-align: center;
@@ -120,11 +122,5 @@
     max-width: 18rem;
     font-size: 0.85rem;
     color: $color-texto-tenue;
-  }
-}
-
-@keyframes girar {
-  to {
-    transform: rotate(360deg);
   }
 }

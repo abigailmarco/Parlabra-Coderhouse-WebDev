@@ -106,3 +106,13 @@ Hoja de estilos externa (`styles/styles.css`) vinculada en las cinco páginas.
 - **Variables** para todos los colores, tipografías, medidas, puntos de quiebre y tiempos: ningún componente tiene colores escritos a mano. Los colores de cada área están en un mapa y se recorren con `@each`.
 - **Anidación y `&`** para estados (`&:hover`), modificadores (`&--activo`) y elementos (`&__titulo`).
 - El sitio se ve exactamente igual que en la entrega anterior (comparado captura por captura).
+
+## Entrega 8 · Animaciones y diseño adaptable completo
+
+- **Animaciones propias** (en `scss/utilities/_animaciones.scss`): la palabra de portada y los títulos suben y aparecen al cargar, la flecha «desliza hacia abajo» rebota, la cinta de especialidades se desplaza, las órbitas del proceso giran, la galería hace un zoom suave y las tarjetas se elevan con `transform` al pasar el mouse.
+- **Librería AOS:** secciones, tarjetas e imágenes aparecen al hacer scroll (`data-aos`), iniciada en `js/animaciones.js`. Respeta la preferencia de movimiento reducido del sistema.
+- **SCSS avanzado:**
+  - mixins con parámetros: `desde($punto)`, `grilla-adaptable($tablet, $escritorio, $espacio)`, `texto-etiqueta($tamano, $espaciado)`, `transicion($propiedades...)` y `aparecer($retraso, $distancia)`;
+  - `@extend` de los placeholders `%caja-superficie` y `%enlace-discreto`;
+  - operadores (`$espacio-lateral * 4`, `math.div($ancho-paso, 2)`), mapas y `@each`.
+- **Las cinco páginas adaptadas** en tres medidas: celular (sin media query), tableta (`min-width: 768px`) y escritorio (`min-width: 1024px`). Revisadas de 1400px a 375px sin desplazamiento horizontal ni contenido cortado.

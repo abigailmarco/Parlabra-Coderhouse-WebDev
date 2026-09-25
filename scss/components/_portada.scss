@@ -4,6 +4,7 @@
 
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
+@use "../utilities/placeholders";
 
 
 .portada {
@@ -16,6 +17,11 @@
   padding: 2.5rem $espacio-lateral;
   text-align: center;
 
+  @include desde(tablet) {
+    padding-left: $espacio-lateral-tablet;
+    padding-right: $espacio-lateral-tablet;
+  }
+
   @include escritorio {
     padding-left: $espacio-lateral-escritorio;
     padding-right: $espacio-lateral-escritorio;
@@ -27,21 +33,13 @@
   }
 
   &__enlace-proyecto {
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: $color-texto-tenue;
-    transition: color $transicion;
-
-    &:hover,
-    &:focus-visible {
-      color: $color-texto;
-    }
+    @extend %enlace-discreto;
+    @include texto-etiqueta(0.7rem, 0.18em);
   }
 
   // Frase que se escribe debajo de la palabra
   &__frase {
+    @include aparecer(0.35s, 12px);
     min-height: 2rem;
     font-family: $fuente-codigo;
     font-size: clamp(0.7rem, 1.7vw, 0.85rem);
@@ -62,16 +60,11 @@
   }
 }
 
-@keyframes parpadeo {
-  50% {
-    opacity: 0;
-  }
-}
-
 
 // ---------- La palabra par·lab·ra ----------
 
 .palabra {
+  @include aparecer(0.1s);
   font-size: clamp(3rem, 12vw, 6.5rem);
   font-weight: 200;
   letter-spacing: -0.04em;
