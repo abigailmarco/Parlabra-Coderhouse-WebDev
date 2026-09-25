@@ -48,3 +48,11 @@ Hoja de estilos externa (`styles/styles.css`) vinculada en las cinco páginas.
 - **Medidas fluidas:** columnas con `fr` (`1fr 1fr`, `2fr 1fr`, `repeat(3, 1fr)`) y `gap` en todas las grillas.
 - **Punto de quiebre de escritorio:** `@media (min-width: 1024px)` pasa las grillas de una a varias columnas.
 - Páginas completas en celular, tableta y escritorio: `index.html` y `pages/ciencia.html`.
+
+## Entrega 5 · Bootstrap y estados interactivos
+
+- **Bootstrap 5.3 por CDN** en las cinco páginas: la hoja de estilos en el `<head>` y el script antes de cerrar el `<body>`.
+- **Navbar de Bootstrap** en todas las páginas, con menú hamburguesa en celulares.
+- **Galería con carrusel** en `index.html` («Así trabajamos») y en `pages/ciencia.html` («Galería de proyectos científicos»).
+- **Estados interactivos** con `:hover`, `:focus`/`:focus-visible` y `:active`, siempre con `transition`: enlaces del menú, logo, botones, tarjetas, controles del carrusel, campos del formulario y redes sociales.
+- Los componentes de Bootstrap se adaptan a la paleta propia: menú oscuro con subrayado ámbar, indicadores y controles del carrusel en los colores del sitio.
